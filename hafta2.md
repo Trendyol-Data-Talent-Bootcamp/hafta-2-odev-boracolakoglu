@@ -1,5 +1,5 @@
 
-#SORU1
+# SORU1
 
 
 ```SQL
@@ -23,11 +23,26 @@ select country, event, count(*) from  medals
 group by country, event
 
 ```
+Sorunu cevabi icin burasi
+```SQL
+with medals as
+(
+  select
+    q.country,
+    q.Sport,
+    count(*) as cnt,
+    row_number() over(partition by q.Sport order by q.Sport , count(*) desc) as siralama 
+  from `dsmbootcamp.bora_colakoglu.summer_medals` as q
+  where year > 1979
+  group by q.Country , q.Sport 
+)
 
+select Country, Sport, siralama, cnt from medals 
+where siralama in (1,3,5)
+order by Sport ,siralama
+```
 
-
-
-
+# Soru2
 
 
 
