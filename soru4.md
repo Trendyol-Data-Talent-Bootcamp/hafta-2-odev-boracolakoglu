@@ -79,8 +79,8 @@ from
 (
 select farm_fingerprint(to_json_string(t1)) as hash1,
 farm_fingerprint(to_json_string(t2)) as hash2,
-t1.category , t1.cdc_date, t1.id, t1.is_deleted,
-t2.category , t2.cdc_date, t2.id, t2.is_deleted
+t1.category , t1.cdc_date, t1.id, t1.is_deleted, --yanlis sonucun sebebini ogrenmeye calisiyodum
+t2.category , t2.cdc_date, t2.id, t2.is_deleted -- ayni sekilde
 from `dsmbootcamp.bora_colakoglu.content_category_target` t1
 left join `dsmbootcamp.bora_colakoglu.content_category` t2
 on farm_fingerprint(to_json_string(t1)) = farm_fingerprint(to_json_string(t2)))
