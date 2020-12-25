@@ -1,0 +1,7 @@
+
+##SORU1
+Deneme
+
+
+
+
